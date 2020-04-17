@@ -53,10 +53,8 @@ class AdminBase extends Base
                 ->where('uid', session('admin_auth.admin_id'))->find();
             $where['id'] = ['in', $access['rules']];
         }
-        $a =  collection(model('authRule')->where($where)
+        return collection(model('authRule')->where($where)
         ->order('sort_order asc')->select())->toArray();
-        dump($a);exit;
-        return;
     }
 
     // 获取面包屑 

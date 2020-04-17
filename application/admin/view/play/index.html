@@ -9,17 +9,33 @@
 </style>
 <div class="layui-card">
 	<div class="layui-card-body">
+
+
+		<form action="{:url('admin/Play/index')}" class="layui-form" method="get">
+            <div class="layui-form-item">
+               
+				<div class="layui-input-inline">
+                    <input type="text" name="play_name" value="" autocomplete="off" placeholder="选择药物名字"
+                        class="layui-input">
+				</div>
+				
+                <div class="layui-input-inline" style="width: 50px;">
+                    <button class="layui-btn layui-btn-primary ajax-search"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+		</form>
+		
 		<div class="layui-btn-group">
-			<a href="{:url('admin/Play/add')}" class="layui-btn"><i class="fa fa-plus-circle"></i> 添加戏曲</a>
+			<a href="{:url('admin/Play/add')}" class="layui-btn"><i class="fa fa-plus-circle"></i> 添加机构</a>
 		</div>
 		<table class="layui-table layui-form">
 
 			<thead>
 				<tr>
 					<th>ID</th>
-					<th>戏曲名字</th>
-					<th>文字介绍</th>
-					<th>图片介绍</th>
+					<th>机构名字</th>
+					<th>机构介绍</th>
+					<th>按时吃药</th>
 					<th>操作</th>
 				</tr>
 			</thead>
@@ -27,18 +43,17 @@
 			<tbody>
 				{foreach name="all" item="v" empty="$empty"}
 				<tr>
-					<td>{$v.id}</td>
+					<td>{$v.s_id}</td>
 					<td>{$v.play_name}</td>
 					<td>
 						{$v.particular|mb_substr=0,20}
 					</td>
+					<td>{$v.introduce}</td>
+
 					<td>
-						<img width="50px" height="50px" src="{$v.picture}" alt="{$v.play_name}" srcset="">
-					</td>
-					<td>
-						<a href="{:url('admin/play/add', ['up' => $v.id])}"
+						<a href="{:url('admin/play/add', ['up' => $v.s_id])}"
 							class="layui-btn layui-btn-xs layui-btn-normal"><i class="fa fa-edit"></i> 编辑</a>
-						<a href="{:url('admin/play/del', ['id' => $v.id])}"
+						<a href="{:url('admin/play/del', ['id' => $v.s_id])}"
 							class="layui-btn layui-btn-xs layui-btn-danger ajax-delete"><i class="fa fa-trash-o"></i>
 							删除</a>
 					</td>

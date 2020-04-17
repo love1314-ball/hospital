@@ -1,0 +1,50 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-card">
+    <div class="layui-card-header">机构设置</div>
+    <div class="layui-card-body">
+        <form action="{:url('admin/Sick/repeatedly')}" class="layui-form" method="post" enctype="multipart/form-data">
+            <div class="layui-form-item maximum">
+                <label class="layui-form-label">手机号：</label>
+                <div class="layui-input-inline">
+                    <select name="order" lay-verify="">
+                        <option value="">请选择手机号</option>
+                        {foreach name="data" item="v" empty="$empty"}
+                        <option value="{$v.o_id}">{$v.phone}</option>
+                        {/foreach}
+                    </select>
+                </div>
+                <div class="layui-form-mid layui-word-aux">选择用户的手机号</div>
+            </div>
+
+            <div class="layui-form-item maximum">
+                <label class="layui-form-label">药物：</label>
+                <div class="layui-input-inline">
+                    <select name="songid" lay-verify="">
+                        <option value="">请选择药物</option>
+                        {foreach name="data" item="v" empty="$empty"}
+                        <option value="{$v.s_id}">{$v.song_name}</option>
+                        {/foreach}
+                    </select>
+                </div>
+                <div class="layui-form-mid layui-word-aux">选择开的药物</div>
+            </div>
+            <div class="layui-form-item maximum">
+                <label class="layui-form-label">药量：</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="song_number" value="" placeholder="选择药的数量" required="required"
+                        class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">开几天的药量</div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" type="submit" lay-submit="">保存</button>
+                    <button class="layui-btn layui-btn-primary" type="reset">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{/block}

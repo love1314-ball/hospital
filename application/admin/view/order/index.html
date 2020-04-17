@@ -1,0 +1,43 @@
+<!-- 预约/ 景点配置 -->
+{extend name="base" /}
+{block name="body"}
+<style>
+	.image img {
+		widows: 45px;
+		height: 45px;
+	}
+</style>
+<div class="layui-card">
+	<div class="layui-card-body">
+		<table class="layui-table layui-form">
+
+			<thead>
+				<tr>
+                    <th>ID</th>
+					<th>订单id</th>
+                    <th>患者名字</th>
+					<th>患者手机号</th>
+					<th>药物名字</th>
+					<th>按时吃药</th>
+					<th>住院时间</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				{foreach name="all" item="v" empty="$empty"}
+				<tr>
+                    <td>{$v.o_id}</td>
+					<td>{$v.order}</td>
+					<td>{$v.username}</td>
+					<td>{$v.phone}</td>
+					<td>{$v.song_name}</td>
+					<td>{$v.introduce}</td>
+					<td>{$v.time}</td>
+				</tr>
+				{/foreach}
+			</tbody>
+
+		</table>
+	</div>
+</div>
+{/block}

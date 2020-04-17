@@ -1,0 +1,23 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-card">
+    <div class="layui-card-header">机构设置</div>
+    <div class="layui-card-body">
+        <form action="{:url('admin/Sick/couple')}" class="layui-form" method="post" enctype="multipart/form-data">
+            <div class="layui-form-item maximum">
+                <label class="layui-form-label">回馈信息:</label>
+                <div class="layui-input-inline">
+                    <textarea rows="10" cols="50" name="content" required lay-verify="required"
+                        placeholder="填写回馈信息"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" type="submit" lay-submit="">保存</button>
+                    <button class="layui-btn layui-btn-primary" type="reset">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{/block}

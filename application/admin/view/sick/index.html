@@ -1,0 +1,81 @@
+<!-- 预约/ 景点配置 -->
+{extend name="base" /}
+{block name="body"}
+<style>
+	.image img {
+		widows: 45px;
+		height: 45px;
+	}
+</style>
+<div class="layui-card">
+	<div class="layui-card-body">
+
+		<!-- 这个查询一样是管理员才可看到的 -->
+
+		<form action="{:url('admin/Sick/index')}" class="layui-form" method="get">
+            <div class="layui-form-item">
+                <div class="layui-input-inline">
+                    <input type="number" name="order" value="" autocomplete="off" placeholder="选择订单号"
+                        class="layui-input">
+				</div>
+				<div class="layui-input-inline">
+                    <input type="text" name="username" value="" autocomplete="off" placeholder="选择患者名字"
+                        class="layui-input">
+				</div>
+				<div class="layui-input-inline">
+                    <input type="number" name="phone" value="" autocomplete="off" placeholder="选择患者手机号"
+                        class="layui-input">
+                </div>
+                <div class="layui-input-inline" style="width: 50px;">
+                    <button class="layui-btn layui-btn-primary ajax-search"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+		<div class="layui-btn-group">
+			<a href="{:url('admin/Sick/add')}" class="layui-btn"><i class="fa fa-plus-circle"></i> 添加患者</a><span style="margin-left: 5px;"></span>
+			<a href="{:url('admin/Sick/adds')}" class="layui-btn"><i class="fa fa-plus-circle"></i> 添加疗程</a>
+		</div>
+
+
+		
+
+		<table class="layui-table layui-form">
+
+			<thead>
+				<tr>
+                    <th>ID</th>
+					<th>订单id</th>
+                    <th>患者名字</th>
+					<th>患者手机号</th>
+					<th>药物名字</th>
+					<th>按时吃药</th>
+					<th>住院时间</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				{foreach name="all" item="v" empty="$empty"}
+				<tr>
+                    <td>{$v.o_id}</td>
+					<td>{$v.order}</td>
+					<td>{$v.username}</td>
+					<td>{$v.phone}</td>
+					<td>{$v.song_name}</td>
+					<td>{$v.introduce}</td>
+					<td>{$v.time}</td>
+					<td>
+						<a href="{:url('admin/Sick/add', ['up' => $v.o_id])}"
+							class="layui-btn layui-btn-xs layui-btn-normal"><i class="fa fa-edit"></i> 编辑</a>
+						<a href="{:url('admin/sick/del', ['id' => $v.o_id])}"
+							class="layui-btn layui-btn-xs layui-btn-danger ajax-delete"><i class="fa fa-trash-o"></i>
+							删除</a>
+					</td>
+				</tr>
+				{/foreach}
+			</tbody>
+
+		</table>
+	</div>
+</div>
+{/block}

@@ -2,7 +2,7 @@
 namespace app\admin\controller;
 use app\common\controller\AdminBase;
 use think\Db;
-//我是歌曲类控制器
+//机构管理
 
 class Song extends AdminBase {
 
@@ -10,11 +10,15 @@ class Song extends AdminBase {
     protected function _initialize() {
         parent::_initialize();
     }
-    //用户首页
+    //机构首页
 
     public function index() {
-
-        $all = Db::name( 'song' )->select();
+        $song_name = input('song_name');
+        $where = [];
+        if ($song_name) {
+            $where['song_name'] = $song_name;
+        }
+        $all = Db::name( 'song' )->where($where)->select();
         $this->assign( 'all', $all );
         return $this->fetch( 'index' );
     }
@@ -39,14 +43,6 @@ class Song extends AdminBase {
         $data['introduce'] = input( 'introduce' );
         //类曲介绍
 
-
-        //判断我们的类名是否存在
-        $song_name = Db::name('song')->where('song_name',$data['song_name'])->find();
-        if ($song_name) {
-            $this->error( '类名已存在' );exit;
-        }
-
-
         if ( $id ) {
             //更细信息开始
             $data['id'] = $id;
@@ -58,6 +54,12 @@ class Song extends AdminBase {
             }
             //更新结束
         } else {
+            //判断我们的类名是否存在
+            $song_name = Db::name( 'song' )->where( 'song_name', $data['song_name'] )->find();
+            if ( $song_name ) {
+                $this->error( '类名已存在' );
+                exit;
+            }
             //我是插入/插入开始
             $add = Db::name( 'song' )->insert( $data );
             if ( $add ) {
