@@ -28,6 +28,12 @@ class Sick extends AdminBase {
             $where['phone'] = $phone;
         }
 
+        $user_id = input( 'session' );
+        //获取session
+        if ( $user_id ) {
+            $where['user_id'] = $user_id;
+        }
+
         $all = Db::name( 'order a' )
         ->join( 'admin w', 'a.user_id = w.id' )
         ->join( 'song c', 'a.song_id = c.id' )
@@ -163,16 +169,26 @@ class Sick extends AdminBase {
     public function couple()
  {
 
-    $data['content'] = input( 'content' );
-    $data['user_id'] = 1;
-    //获取的session
-    $data['user_name'] = "ceshi";
-    $add = Db::name( 'survey' )->insert( $data );
-    if ( $add ) {
-        $this->success( '增加成功', 'admin/Sick/index' );
-    } else {
-        $this->error( '增加失败' );
+        $data['content'] = input( 'content' );
+        $data['user_id'] = 1;
+        //获取的session
+        $data['user_name'] = 'ceshi';
+        $add = Db::name( 'survey' )->insert( $data );
+        if ( $add ) {
+            $this->success( '增加成功', 'admin/Sick/index' );
+        } else {
+            $this->error( '增加失败' );
+        }
     }
+
+    public function i()
+ {
+        $all = '';
+        for ( $i = 0; $i < 100; $i++ ) {
+
+            $all .= $i.',';
+        }
+        dump( $all );
     }
 
 }

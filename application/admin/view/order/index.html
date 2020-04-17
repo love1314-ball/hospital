@@ -20,6 +20,8 @@
 					<th>药物名字</th>
 					<th>按时吃药</th>
 					<th>住院时间</th>
+					<th>住出院</th>
+
 				</tr>
 			</thead>
 
@@ -33,6 +35,11 @@
 					<td>{$v.song_name}</td>
 					<td>{$v.introduce}</td>
 					<td>{$v.time}</td>
+					<td>
+						{if $v.order_status eq 0}住院
+						{else/}出院{/if}
+					</td>
+
 				</tr>
 				{/foreach}
 			</tbody>
