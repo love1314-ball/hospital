@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50726
 File Encoding         : 65001
 
-Date: 2020-04-17 09:33:40
+Date: 2020-04-17 10:07:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -58,14 +58,14 @@ CREATE TABLE `ob_admin` (
 -- ----------------------------
 -- Records of ob_admin
 -- ----------------------------
-INSERT INTO `ob_admin` VALUES ('2', 'demo', 'e10adc3949ba59abbe56e057f20f883e', '1586872678', '127.0.0.1', '3', '1539076102', '1586872678', '0', '1', null);
-INSERT INTO `ob_admin` VALUES ('3', 'test', 'e10adc3949ba59abbe56e057f20f883e', '1586873191', '127.0.0.1', '1', '0', '1586873191', '2', '1', null);
-INSERT INTO `ob_admin` VALUES ('4', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '1587085025', '127.0.0.1', '41', '0', '1587085025', '2', '1', null);
-INSERT INTO `ob_admin` VALUES ('5', '罗犇', 'a9b7ba70783b617e9998dc4dd82eb3c5', '0', '127.0.0.1', '0', '1587040281', '0', '2', '1', '1000');
-INSERT INTO `ob_admin` VALUES ('6', '链路聚合', '4abbedd62b6f1a99d4153bcb3f691b96', '0', '127.0.0.1', '0', '1587040440', '0', '2', '1', '150000');
-INSERT INTO `ob_admin` VALUES ('7', '了激', '4abbedd62b6f1a99d4153bcb3f691b96', '0', '127.0.0.1', '0', '1587040561', '0', '2', '1', '150000');
-INSERT INTO `ob_admin` VALUES ('8', '刘俊豪', 'c4ca4238a0b923820dcc509a6f75849b', '0', '127.0.0.1', '0', '1587040934', '0', '2', '1', '1');
-INSERT INTO `ob_admin` VALUES ('9', '李哈哈', '70a85400f71d5fcbb5fc7bb30ab2418f', '0', '127.0.0.1', '0', '1587042097', '0', '2', '1', '1783236');
+INSERT INTO `ob_admin` VALUES ('2', 'demo', 'e10adc3949ba59abbe56e057f20f883e', '1587087866', '127.0.0.1', '4', '1539076102', '1587087866', '0', '1', null);
+INSERT INTO `ob_admin` VALUES ('3', 'test', 'e10adc3949ba59abbe56e057f20f883e', '1586873191', '127.0.0.1', '1', '0', '1586873191', '1', '1', null);
+INSERT INTO `ob_admin` VALUES ('4', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '1587087761', '127.0.0.1', '43', '0', '1587087761', '1', '1', null);
+INSERT INTO `ob_admin` VALUES ('5', '罗犇', 'a9b7ba70783b617e9998dc4dd82eb3c5', '0', '127.0.0.1', '0', '1587040281', '0', '1', '1', '1000');
+INSERT INTO `ob_admin` VALUES ('6', '链路聚合', '4abbedd62b6f1a99d4153bcb3f691b96', '0', '127.0.0.1', '0', '1587040440', '0', '1', '1', '1500000');
+INSERT INTO `ob_admin` VALUES ('7', '了激', '4abbedd62b6f1a99d4153bcb3f691b96', '1587088021', '127.0.0.1', '1', '1587040561', '1587088021', '2', '1', '150000');
+INSERT INTO `ob_admin` VALUES ('8', '刘俊豪', 'c4ca4238a0b923820dcc509a6f75849b', '0', '127.0.0.1', '0', '1587040934', '0', '1', '1', '1');
+INSERT INTO `ob_admin` VALUES ('9', '李哈哈', '70a85400f71d5fcbb5fc7bb30ab2418f', '0', '127.0.0.1', '0', '1587042097', '0', '1', '1', '1783236');
 
 -- ----------------------------
 -- Table structure for ob_admin_log
@@ -84,7 +84,7 @@ CREATE TABLE `ob_admin_log` (
   `remark` varchar(255) NOT NULL DEFAULT '' COMMENT '日志备注',
   `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='管理员日志';
+) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='管理员日志';
 
 -- ----------------------------
 -- Records of ob_admin_log
@@ -183,6 +183,14 @@ INSERT INTO `ob_admin_log` VALUES ('91', '4', 'admin', 'Mozilla/5.0 (Windows NT 
 INSERT INTO `ob_admin_log` VALUES ('92', '4', 'admin', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', '127.0.0.1', 'http://www.hospital.com/admin/auth/editrule.html?id=64', 'POST', 'json', '{\"id\":\"64\",\"name\":\"\\u53d6\\u836f\\u5217\\u8868\",\"url\":\"admin\\/Order\\/index\",\"icon\":\"\",\"type\":\"nav\",\"index\":\"0\",\"sort_order\":\"0\",\"pid\":\"63\"}', '修改了权限规则', '1587086121');
 INSERT INTO `ob_admin_log` VALUES ('93', '4', 'admin', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', '127.0.0.1', 'http://www.hospital.com/admin/auth/addrule.html?id=67', 'POST', 'json', '{\"id\":\"\",\"name\":\"\\u589e\\u52a0\\u7597\\u7a0b\",\"url\":\"admin\\/Sick\\/adds\",\"icon\":\"\",\"type\":\"nav\",\"index\":\"0\",\"sort_order\":\"0\",\"pid\":\"67\"}', '添加了权限规则', '1587086180');
 INSERT INTO `ob_admin_log` VALUES ('94', '4', 'admin', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', '127.0.0.1', 'http://www.hospital.com/admin/auth/addrule.html?id=67', 'POST', 'json', '{\"id\":\"\",\"name\":\"\\u7528\\u6237\\u53cd\\u9988\",\"url\":\"admin\\/Sick\\/feedback\",\"icon\":\"\",\"type\":\"nav\",\"index\":\"0\",\"sort_order\":\"0\",\"pid\":\"67\"}', '添加了权限规则', '1587087039');
+INSERT INTO `ob_admin_log` VALUES ('95', '4', 'admin', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', '127.0.0.1', 'http://www.lbxiangmu.com/admin/index/logout.html', 'GET', 'xml', '[]', '退出了后台系统', '1587087324');
+INSERT INTO `ob_admin_log` VALUES ('96', '4', 'admin', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.92 Safari/537.36', '127.0.0.1', 'http://www.lbxiangmu.com/admin.html', 'POST', 'json', '{\"username\":\"admin\",\"password\":\"123456\",\"captcha\":\"p4bx\"}', '登录了后台系统', '1587087572');
+INSERT INTO `ob_admin_log` VALUES ('97', '4', 'admin', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', '127.0.0.1', 'http://www.hospital.com/admin/index/logout.html', 'GET', 'xml', '[]', '退出了后台系统', '1587087749');
+INSERT INTO `ob_admin_log` VALUES ('98', '4', 'admin', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', '127.0.0.1', 'http://www.hospital.com/admin.html', 'POST', 'json', '{\"username\":\"admin\",\"password\":\"123456\",\"captcha\":\"ybyn\"}', '登录了后台系统', '1587087761');
+INSERT INTO `ob_admin_log` VALUES ('99', '4', 'admin', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', '127.0.0.1', 'http://www.hospital.com/admin/index/logout.html', 'GET', 'xml', '[]', '退出了后台系统', '1587087805');
+INSERT INTO `ob_admin_log` VALUES ('100', '2', 'demo', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', '127.0.0.1', 'http://www.hospital.com/admin.html', 'POST', 'json', '{\"username\":\"demo\",\"password\":\"123456\",\"captcha\":\"drnr\"}', '登录了后台系统', '1587087866');
+INSERT INTO `ob_admin_log` VALUES ('101', '2', 'demo', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', '127.0.0.1', 'http://www.hospital.com/admin/index/logout.html', 'GET', 'xml', '[]', '退出了后台系统', '1587087946');
+INSERT INTO `ob_admin_log` VALUES ('102', '7', '了激', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', '127.0.0.1', 'http://www.hospital.com/admin.html', 'POST', 'json', '{\"username\":\"\\u4e86\\u6fc0\",\"password\":\"150000\",\"captcha\":\"bnf5\"}', '登录了后台系统', '1587088021');
 
 -- ----------------------------
 -- Table structure for ob_article
@@ -417,7 +425,7 @@ CREATE TABLE `ob_nav` (
 -- ----------------------------
 INSERT INTO `ob_nav` VALUES ('1', '0', '6,44,43,1,7,8,58,59,61,5,15,17,18');
 INSERT INTO `ob_nav` VALUES ('2', '1', '56,57,60,67,68,70,71,72,73,74,75,77');
-INSERT INTO `ob_nav` VALUES ('3', '2', '75,63,78,70');
+INSERT INTO `ob_nav` VALUES ('3', '2', '70,63,78,67');
 
 -- ----------------------------
 -- Table structure for ob_order

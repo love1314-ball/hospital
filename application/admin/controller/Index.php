@@ -51,7 +51,7 @@ class Index extends AdminBase
 
     public function login()
     {
-        // is_admin_login() && $this->redirect('admin/index/index'); // 登录直接跳转/判断cookie
+        is_admin_login() && $this->redirect('admin/index/index'); // 登录直接跳转/判断cookie
         if ($this->request->isPost()) {
             $param  = $this->request->param();
             $result = $this->validate($param, 'login');
@@ -70,6 +70,9 @@ class Index extends AdminBase
                     'username' => $admin['username'],
                 ];
                 session('admin_auth', $auth);
+				session('phone', $admin['phone']);
+				session('username', $admin['username']);
+				session('user_id', $admin['id']);
                 session('admin_auth_sign', data_auth_sign($auth));
                 // 更新信息
                 model('admin')->save([
